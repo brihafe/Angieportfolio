@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angela A. Nantes | Admin Virtual Assistant</title>
+<meta name="description" content="Reliable Admin VA helping busy entrepreneurs stay organized, responsive, and focused. Expert in calendar management, email coordination, and administrative support.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sage:#84A98C;--emerald:#2F855A;--forest:#22543D;
+  --mint:#D8F3DC;--beige:#F8F9FA;--white:#FFFFFF;
+  --dark:#1A2B1F;--muted:#6B7C71;
+  --border:rgba(132,169,140,0.22);
+  --glass:rgba(255,255,255,0.75);
+  --shadow:0 8px 32px rgba(34,84,61,0.12);
+  --shadow-lg:0 20px 60px rgba(34,84,61,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#F8F9FA;color:var(--dark);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:9999;background:rgba(248,249,250,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.85rem 2.5rem;display:flex;justify-content:space-between;align-items:center;animation:slideDown .5s ease both}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--forest);text-decoration:none}
+.logo span{color:var(--sage)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.88rem;transition:color .3s}
+.nav-links a:hover{color:var(--emerald)}
+.nav-btn{background:linear-gradient(135deg,var(--sage),var(--emerald));color:#fff;padding:.6rem 1.4rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.86rem;transition:all .3s;border:none;cursor:pointer}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(47,133,90,.3)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 2.5rem 5rem;background:linear-gradient(150deg,#fff 0%,rgba(216,243,220,.3) 50%,#fff 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-10%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(132,169,140,.16) 0%,transparent 65%);border-radius:50%;animation:floatOrb 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-10%;width:450px;height:450px;background:radial-gradient(circle,rgba(47,133,90,.09) 0%,transparent 65%);border-radius:50%;animation:floatOrb 10s ease-in-out infinite reverse}
+@keyframes floatOrb{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-25px)}}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;position:relative;z-index:2}
+.avail-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(216,243,220,.85);border:1px solid var(--sage);padding:.4rem 1rem;border-radius:50px;font-size:.78rem;font-weight:600;color:var(--forest);margin-bottom:1.5rem;animation:fadeUp .6s .2s both}
+.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:puls 2s infinite}
+@keyframes puls{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:1.18;color:var(--forest);margin-bottom:1.2rem;animation:fadeUp .6s .3s both}
+.hero-sub{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;animation:fadeUp .6s .4s both}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:2.2rem;animation:fadeUp .6s .5s both}
+.stat-pill{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(10px);padding:.85rem 1rem;border-radius:14px;transition:all .3s}
+.stat-pill:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.stat-label{font-size:.72rem;font-weight:700;color:var(--sage);letter-spacing:.5px;text-transform:uppercase}
+.stat-val{font-size:.86rem;color:var(--dark);font-weight:500;margin-top:.2rem}
+.hero-btns{display:flex;gap:1rem;animation:fadeUp .6s .6s both;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--sage),var(--emerald));color:#fff;padding:.85rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:600;border:none;cursor:pointer;transition:all .3s;font-size:.92rem;display:inline-block}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(47,133,90,.35)}
+.btn-outline{background:transparent;color:var(--emerald);border:2px solid var(--sage);padding:.85rem 1.8rem;border-radius:50px;text-decoration:none;font-weight:600;cursor:pointer;transition:all .3s;font-size:.92rem;display:inline-block}
+.btn-outline:hover{background:var(--mint);border-color:var(--emerald)}
+.hero-card{position:relative;animation:fadeUp .8s .3s both}
+.photo-frame{width:100%;aspect-ratio:4/5;border-radius:24px;border:2px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(216,243,220,.5),rgba(132,169,140,.2))}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.photo-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,rgba(34,84,61,.1));pointer-events:none}
+.floating-tool{position:absolute;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:12px;padding:.55rem;box-shadow:var(--shadow);animation:floatChip 4s ease-in-out infinite}
+.ft1{bottom:15%;left:-16%;animation-delay:0s}
+.ft2{top:18%;right:-14%;animation-delay:1.5s}
+.ft3{bottom:32%;right:-16%;animation-delay:.8s}
+@keyframes floatChip{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.floating-tool img{width:34px;height:34px;object-fit:contain}
+.photo-badge{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.93);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:12px;padding:.65rem 1.2rem;text-align:center;white-space:nowrap;box-shadow:var(--shadow);z-index:5}
+.photo-badge .pb-name{font-weight:700;color:var(--forest);font-size:.92rem}
+.photo-badge .pb-role{color:var(--sage);font-size:.73rem;font-weight:600;margin-top:.1rem}
+
+/* SECTION COMMONS */
+.section{padding:5rem 2.5rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);margin-bottom:.7rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--forest);margin-bottom:.8rem}
+.section-sub{color:var(--muted);max-width:460px;line-height:1.7;font-size:.95rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ABOUT */
+.about-bg{background:linear-gradient(135deg,rgba(216,243,220,.18),#fff)}
+.about-grid{display:grid;grid-template-columns:360px 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+.about-photo-frame{width:100%;aspect-ratio:4/5;border-radius:24px;border:2px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden}
+.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-bio{color:var(--muted);line-height:1.9;margin-bottom:1.4rem;font-size:.96rem}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.5rem}
+.val-card{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(10px);padding:1.1rem;border-radius:14px;transition:all .3s}
+.val-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--sage)}
+.val-icon{font-size:1.3rem;margin-bottom:.35rem}
+.val-card h4{color:var(--forest);font-size:.9rem;font-weight:600}
+.val-card p{color:var(--muted);font-size:.78rem;margin-top:.15rem}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;margin-top:3rem}
+.svc-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);padding:1.8rem;border-radius:18px;transition:all .35s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage),var(--emerald));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--sage)}
+.svc-icon{font-size:2.1rem;margin-bottom:.9rem}
+.svc-card h3{color:var(--forest);font-size:1rem;font-weight:600;margin-bottom:.45rem}
+.svc-card p{color:var(--muted);font-size:.85rem;line-height:1.6}
+.svc-tag{display:inline-block;background:var(--mint);color:var(--forest);padding:.22rem .65rem;border-radius:50px;font-size:.7rem;font-weight:600;margin-top:.7rem}
+
+/* TOOLS */
+.tools-bg{background:linear-gradient(135deg,rgba(34,84,61,.03),rgba(216,243,220,.18))}
+.tools-cat{margin-bottom:2.2rem}
+.cat-title{font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.cat-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.tools-row{display:flex;flex-wrap:wrap;gap:1rem}
+.tool-chip{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:16px;padding:1.1rem 1.3rem;display:flex;flex-direction:column;align-items:center;gap:.55rem;min-width:95px;transition:all .3s}
+.tool-chip:hover{transform:translateY(-6px) scale(1.04);box-shadow:0 12px 28px rgba(47,133,90,.15);border-color:var(--sage)}
+.tool-chip img{width:44px;height:44px;object-fit:contain}
+.tool-chip span{font-size:.7rem;font-weight:600;color:var(--muted);text-align:center;white-space:nowrap}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem;margin-top:3rem}
+.skill-card{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(12px);padding:1.7rem;border-radius:18px}
+.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+.skill-name{font-weight:600;color:var(--dark);font-size:.93rem}
+.skill-pct{font-weight:700;color:var(--emerald);font-size:.93rem}
+.skill-bar{height:7px;background:var(--mint);border-radius:50px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--emerald));border-radius:50px;width:0;transition:width 1.2s ease}
+.skill-fill.animated{width:var(--w)}
+.skill-desc{color:var(--muted);font-size:.79rem;margin-top:.55rem}
+
+/* CASE STUDIES */
+.case-studies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.8rem;margin-top:3rem}
+.cs-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:20px;padding:1.8rem;transition:all .3s}
+.cs-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--sage)}
+.cs-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--mint);color:var(--forest);padding:.28rem .75rem;border-radius:50px;font-size:.7rem;font-weight:700;margin-bottom:.9rem}
+.cs-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--forest);margin-bottom:.65rem}
+.cs-card p{color:var(--muted);font-size:.86rem;line-height:1.7}
+.cs-row{display:flex;flex-direction:column;gap:.45rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.cs-item{display:flex;gap:.55rem;font-size:.8rem}
+.cs-lbl{color:var(--sage);font-weight:600;min-width:65px}
+.cs-val{color:var(--muted)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.8rem;margin-top:3rem}
+.proj-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:20px;overflow:hidden;transition:all .3s}
+.proj-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--sage)}
+.proj-preview{height:140px;background:linear-gradient(135deg,rgba(216,243,220,.6),rgba(132,169,140,.25));display:flex;align-items:center;justify-content:center;font-size:3.2rem;border-bottom:1px solid var(--border)}
+.proj-body{padding:1.6rem}
+.proj-body h3{font-weight:700;color:var(--forest);margin-bottom:.38rem;font-size:.98rem}
+.proj-body p{color:var(--muted);font-size:.83rem;line-height:1.6;margin-bottom:.7rem}
+.proj-tools{display:flex;flex-wrap:wrap;gap:.38rem}
+.proj-tag{background:var(--mint);color:var(--forest);padding:.18rem .55rem;border-radius:6px;font-size:.7rem;font-weight:600}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;margin-top:3rem}
+.cert-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:18px;padding:1.8rem;text-align:center;transition:all .3s}
+.cert-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--sage)}
+.cert-icon{font-size:2.8rem;margin-bottom:.9rem}
+.cert-card h3{font-weight:700;color:var(--forest);font-size:.95rem;margin-bottom:.28rem}
+.cert-org{color:var(--sage);font-size:.78rem;font-weight:600;margin-bottom:.7rem}
+.cert-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--mint);color:var(--forest);padding:.28rem .75rem;border-radius:50px;font-size:.7rem;font-weight:700}
+
+/* TESTIMONIALS */
+.testi-bg{background:linear-gradient(135deg,rgba(216,243,220,.12),#fff)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1.8rem;margin-top:3rem}
+.testi-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:20px;padding:1.8rem;transition:all .3s;position:relative}
+.testi-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--mint);position:absolute;top:.8rem;right:1.3rem;line-height:1}
+.testi-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.testi-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem}
+.testi-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--sage),var(--emerald));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0}
+.testi-name{font-weight:700;color:var(--dark);font-size:.9rem}
+.testi-role{color:var(--muted);font-size:.76rem}
+.stars{color:#F59E0B;font-size:.87rem;margin-bottom:.7rem;letter-spacing:2px}
+.testi-text{color:var(--muted);font-size:.86rem;line-height:1.75;font-style:italic}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;margin-top:3rem}
+.why-card{background:linear-gradient(135deg,rgba(216,243,220,.38),var(--glass));border:1.5px solid var(--border);backdrop-filter:blur(12px);padding:1.8rem;border-radius:18px;text-align:center;transition:all .3s}
+.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--sage)}
+.why-icon{font-size:2.3rem;margin-bottom:.8rem}
+.why-card h3{color:var(--forest);font-size:.95rem;font-weight:700;margin-bottom:.38rem}
+.why-card p{color:var(--muted);font-size:.8rem;line-height:1.6}
+
+/* AVAILABILITY */
+.avail-bg{background:linear-gradient(135deg,var(--forest),var(--emerald));border-radius:28px;padding:4rem 3rem;text-align:center;margin:0 auto;max-width:860px;position:relative;overflow:hidden}
+.avail-bg::before{content:'';position:absolute;top:-50%;right:-20%;width:480px;height:480px;background:rgba(255,255,255,.05);border-radius:50%}
+.avail-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(216,243,220,.2);border:1px solid rgba(216,243,220,.4);color:#fff;padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:1.4rem}
+.avail-bg h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:#fff;margin-bottom:.9rem}
+.avail-bg p{color:rgba(255,255,255,.8);font-size:.95rem;line-height:1.7;max-width:480px;margin:0 auto 1.8rem}
+.avail-features{display:flex;justify-content:center;gap:1.8rem;flex-wrap:wrap;margin-bottom:2rem}
+.avail-feat{color:rgba(255,255,255,.85);font-size:.85rem;display:flex;align-items:center;gap:.4rem}
+.btn-white{background:#fff;color:var(--forest);padding:.85rem 1.8rem;border-radius:50px;font-weight:700;border:none;cursor:pointer;transition:all .3s;font-size:.92rem;text-decoration:none;display:inline-block}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.14)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3.5rem;align-items:start}
+.contact-form-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(16px);border-radius:20px;padding:2.3rem}
+.contact-form-card h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--forest);margin-bottom:1.6rem}
+.form-group{margin-bottom:1.3rem}
+.form-group label{display:block;font-size:.83rem;font-weight:600;color:var(--dark);margin-bottom:.45rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.8rem .95rem;border:1.5px solid var(--border);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.88rem;background:rgba(255,255,255,.85);transition:all .3s;color:var(--dark)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(132,169,140,.1)}
+.form-group textarea{resize:vertical;min-height:110px}
+.contact-info-cards{display:flex;flex-direction:column;gap:1.1rem}
+.ci-card{background:var(--glass);border:1.5px solid var(--border);backdrop-filter:blur(12px);border-radius:16px;padding:1.3rem;display:flex;align-items:center;gap:1.1rem;transition:all .3s}
+.ci-card:hover{transform:translateX(5px);border-color:var(--sage)}
+.ci-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--sage),var(--emerald));border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.ci-label{font-size:.75rem;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:.5px}
+.ci-val{font-weight:600;color:var(--dark);font-size:.9rem;margin-top:.1rem}
+.contact-quote{background:linear-gradient(135deg,rgba(216,243,220,.5),rgba(132,169,140,.18));border-radius:16px;padding:1.6rem;margin-top:1.1rem;border-left:4px solid var(--sage)}
+.contact-quote p{font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:var(--forest);font-style:italic;line-height:1.7}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,var(--forest),#1a3a28);padding:2.8rem 2.5rem;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:#fff;margin-bottom:.9rem}
+.footer-sub{color:rgba(255,255,255,.6);margin-bottom:1.4rem;font-size:.87rem}
+.footer-links{display:flex;justify-content:center;gap:1.8rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.86rem;transition:color .3s}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.5)}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:1.8rem;right:1.8rem;z-index:8888;display:flex;flex-direction:column;align-items:flex-end;gap:.55rem}
+.float-btn{background:linear-gradient(135deg,var(--sage),var(--emerald));color:#fff;border:none;padding:.8rem 1.3rem;border-radius:50px;font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 8px 22px rgba(47,133,90,.38);transition:all .3s;animation:popIn .5s .8s both}
+.float-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 35px rgba(47,133,90,.5)}
+.ai-toggle{background:var(--forest);color:#fff;border:none;width:50px;height:50px;border-radius:50%;font-size:1.35rem;cursor:pointer;box-shadow:0 8px 22px rgba(34,84,61,.38);transition:all .3s;animation:popIn .5s 1s both;display:flex;align-items:center;justify-content:center}
+.ai-toggle:hover{transform:scale(1.1)}
+@keyframes popIn{from{opacity:0;transform:scale(0.6)}to{opacity:1;transform:scale(1)}}
+
+/* AI CHAT */
+.ai-chat{position:fixed;bottom:6.2rem;right:1.8rem;width:355px;background:#fff;border:1.5px solid var(--border);border-radius:24px;box-shadow:0 24px 60px rgba(34,84,61,.2);z-index:8888;overflow:hidden;display:none;flex-direction:column;animation:slideUp .3s ease}
+.ai-chat.open{display:flex}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.ai-chat-head{background:linear-gradient(135deg,var(--forest),var(--emerald));padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.ai-head-info{display:flex;align-items:center;gap:.75rem}
+.ai-avatar-wrap{width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.ai-chat-head h4{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:.05rem}
+.ai-chat-head span{color:rgba(255,255,255,.75);font-size:.72rem}
+.ai-close{background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;padding:.2rem}
+.ai-messages{flex:1;padding:1.1rem;display:flex;flex-direction:column;gap:.75rem;overflow-y:auto;max-height:280px;min-height:180px}
+.msg{max-width:85%;padding:.65rem .95rem;border-radius:14px;font-size:.83rem;line-height:1.55}
+.msg.bot{background:var(--mint);color:var(--forest);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--emerald);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.ai-suggs{padding:.55rem .95rem;display:flex;flex-wrap:wrap;gap:.38rem;border-top:1px solid var(--border)}
+.ai-sug{background:var(--mint);color:var(--forest);border:none;padding:.28rem .65rem;border-radius:50px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s}
+.ai-sug:hover{background:var(--sage);color:#fff}
+.ai-input-row{border-top:1px solid var(--border);padding:.75rem .95rem;display:flex;gap:.55rem}
+.ai-input{flex:1;border:1.5px solid var(--border);border-radius:50px;padding:.45rem .9rem;font-family:'DM Sans',sans-serif;font-size:.82rem;background:rgba(248,249,250,.85)}
+.ai-input:focus{outline:none;border-color:var(--sage)}
+.ai-send{background:var(--emerald);color:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+.ai-send:hover{background:var(--forest)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.1rem}
+  .section-title{font-size:1.9rem}
+  .avail-bg{padding:2.5rem 1.5rem}
+  .float-cta{right:.8rem;bottom:.8rem}
+  .nav-links{display:none}
+  .hero-btns{flex-direction:column}
+  nav{padding:.85rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Angie<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">📅 Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="avail-pill"><div class="dot"></div>Open to Part-Time Opportunities</div>
+      <h1>Reliable Admin VA Helping Busy Entrepreneurs Stay Organized, Responsive &amp; Focused</h1>
+      <p class="hero-sub">I help business owners manage daily operations efficiently through organized administrative support, communication management, scheduling, and productivity-focused assistance.</p>
+      <div class="hero-stats">
+        <div class="stat-pill"><div class="stat-label">✦ Organized &amp; Reliable</div><div class="stat-val">Dependable admin support</div></div>
+        <div class="stat-pill"><div class="stat-label">✦ Fast Communication</div><div class="stat-val">Quick, professional responses</div></div>
+        <div class="stat-pill"><div class="stat-label">✦ Flexible Availability</div><div class="stat-val">Part-time &amp; project-based</div></div>
+        <div class="stat-pill"><div class="stat-label">✦ Detail-Oriented</div><div class="stat-val">Nothing slips through</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+        <a href="#services" class="btn-outline">Let's Work Together</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="photo-frame">
+        <img id="angiePhoto" src="" alt="Angela A. Nantes – Admin Virtual Assistant">
+        <div class="photo-badge">
+          <div class="pb-name">Angela A. Nantes</div>
+          <div class="pb-role">Admin Virtual Assistant</div>
+        </div>
+      </div>
+      <div class="floating-tool ft1"><img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_512dp.png" alt="Gmail"></div>
+      <div class="floating-tool ft2"><img src="https://www.gstatic.com/images/branding/product/1x/calendar_2020q4_512dp.png" alt="Calendar"></div>
+      <div class="floating-tool ft3"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" alt="Slack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-bg" id="about">
+  <div class="section-inner">
+    <div class="reveal"><span class="section-label">About Angie</span></div>
+    <div class="about-grid">
+      <div class="about-photo-frame reveal">
+        <img id="angiePhotoAbout" src="" alt="Angela A. Nantes">
+      </div>
+      <div class="reveal">
+        <h2 class="section-title">Meet Angela A. Nantes</h2>
+        <p class="about-bio">Motivated and detail-oriented aspiring Admin Virtual Assistant eager to support businesses with organization and administrative tasks. Skilled in communication, time management, scheduling, and office tools, with a strong willingness to learn and grow professionally.</p>
+        <p class="about-bio">Dedicated to providing reliable support, staying organized, and helping clients manage their daily operations efficiently. Passionate about delivering quality work with professionalism and a positive attitude.</p>
+        <div class="values-grid">
+          <div class="val-card"><div class="val-icon">📌</div><h4>Detail-Oriented</h4><p>Nothing slips through the cracks</p></div>
+          <div class="val-card"><div class="val-icon">✅</div><h4>Reliable</h4><p>Consistent, trustworthy support</p></div>
+          <div class="val-card"><div class="val-icon">💬</div><h4>Communicative</h4><p>Clear and prompt responses always</p></div>
+          <div class="val-card"><div class="val-icon">🚀</div><h4>Growth-Minded</h4><p>Continuously learning &amp; improving</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">What I Offer</span>
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Comprehensive administrative support tailored to keep your business running smoothly.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal"><div class="svc-icon">📧</div><h3>Email Management</h3><p>Organize, filter, and respond to emails professionally, keeping your inbox clean and communication on track.</p><span class="svc-tag">Admin Core</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">📅</div><h3>Calendar Management</h3><p>Schedule meetings, set reminders, and manage your time so you never miss an important appointment.</p><span class="svc-tag">Scheduling</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">⏰</div><h3>Appointment Coordination</h3><p>Handle booking, rescheduling, and client confirmation with efficiency and professionalism.</p><span class="svc-tag">Scheduling</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">📊</div><h3>Data Entry</h3><p>Accurate, organized data entry and record management for spreadsheets and business databases.</p><span class="svc-tag">Admin Core</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">🗂️</div><h3>File Organization</h3><p>Create structured filing systems that keep your documents accessible, organized, and secure.</p><span class="svc-tag">Organization</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">💬</div><h3>Customer Support</h3><p>Professional communication and support assistance to keep your clients happy and informed.</p><span class="svc-tag">Communication</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">⚙️</div><h3>Administrative Assistance</h3><p>General admin tasks including invoice tracking, follow-ups, reports, and operational support.</p><span class="svc-tag">Admin Core</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">🔄</div><h3>Workflow Organization</h3><p>Streamline your processes and create efficient workflows that save time and reduce errors.</p><span class="svc-tag">Productivity</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">📱</div><h3>Social Media Assistance</h3><p>Support with scheduling, content organization, and community engagement across social platforms.</p><span class="svc-tag">Social</span></div>
+      <div class="svc-card reveal"><div class="svc-icon">🎨</div><h3>Basic Design Support</h3><p>Simple graphic design assistance using Canva for social posts, presentations, and basic visuals.</p><span class="svc-tag">Creative</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section tools-bg" id="tools">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Tools &amp; Software</span>
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-sub">Proficient with industry-standard platforms to support your operations seamlessly.</p>
+    </div>
+    <div class="tools-cat reveal" style="margin-top:3rem">
+      <div class="cat-title">Productivity &amp; Office</div>
+      <div class="tools-row">
+        <div class="tool-chip"><img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_512dp.png" alt="Gmail"><span>Gmail</span></div>
+        <div class="tool-chip"><img src="https://www.gstatic.com/images/branding/product/1x/calendar_2020q4_512dp.png" alt="Google Calendar"><span>Google Calendar</span></div>
+        <div class="tool-chip"><img src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_512dp.png" alt="Google Docs"><span>Google Docs</span></div>
+        <div class="tool-chip"><img src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_512dp.png" alt="Google Sheets"><span>Google Sheets</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" alt="MS Word"><span>MS Word</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" alt="MS Excel"><span>MS Excel</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png" alt="PowerPoint"><span>PowerPoint</span></div>
+      </div>
+    </div>
+    <div class="tools-cat reveal">
+      <div class="cat-title">Communication</div>
+      <div class="tools-row">
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" alt="Slack"><span>Slack</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Zoom_Communications_Logo.svg/1200px-Zoom_Communications_Logo.svg.png" alt="Zoom"><span>Zoom</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Skype_logo_%282019%E2%80%93present%29.svg/1200px-Skype_logo_%282019%E2%80%93present%29.svg.png" alt="Skype"><span>Skype</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/512px-Telegram_logo.svg.png" alt="Telegram"><span>Telegram</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" alt="WhatsApp"><span>WhatsApp</span></div>
+      </div>
+    </div>
+    <div class="tools-cat reveal">
+      <div class="cat-title">Project Management</div>
+      <div class="tools-row">
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Trello-logo-blue.svg/1280px-Trello-logo-blue.svg.png" alt="Trello"><span>Trello</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Calendly-Logo.svg/1280px-Calendly-Logo.svg.png" alt="Calendly"><span>Calendly</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Notion-logo.svg/512px-Notion-logo.svg.png" alt="Notion"><span>Notion</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Asana_logo.svg/1280px-Asana_logo.svg.png" alt="Asana"><span>Asana</span></div>
+      </div>
+    </div>
+    <div class="tools-cat reveal">
+      <div class="cat-title">Creative &amp; Social</div>
+      <div class="tools-row">
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/512px-Canva_icon_2021.svg.png" alt="Canva"><span>Canva</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram"><span>Instagram</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/512px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook"><span>Facebook</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="Twitter X"><span>Twitter / X</span></div>
+        <div class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/512px-LinkedIn_Logo.svg.png" alt="LinkedIn"><span>LinkedIn</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Expertise Level</span>
+      <h2 class="section-title">Key Skills</h2>
+      <p class="section-sub">Core competencies that help your business operate more smoothly.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Email &amp; Calendar Management</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div><p class="skill-desc">Expert inbox organization and scheduling coordination</p></div>
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Administrative Support</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:92%"></div></div><p class="skill-desc">Reliable daily operations management and task execution</p></div>
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Data Entry &amp; File Organization</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div><p class="skill-desc">Accurate data management and systematic filing</p></div>
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Customer Communication</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div><p class="skill-desc">Professional client-facing communication and support</p></div>
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Social Media Assistance</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div><p class="skill-desc">Content scheduling and community engagement</p></div>
+      <div class="skill-card reveal"><div class="skill-header"><span class="skill-name">Graphic Design (Canva)</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div><p class="skill-desc">Clean visual content for social media and slides</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section" id="work" style="background:linear-gradient(135deg,rgba(216,243,220,.1),#fff)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Real Results</span>
+      <h2 class="section-title">Case Studies</h2>
+      <p class="section-sub">Administrative solutions that created measurable business improvements.</p>
+    </div>
+    <div class="case-studies-grid">
+      <div class="cs-card reveal"><div class="cs-badge">📅 Scheduling</div><h3>Organizing a Busy Entrepreneur's Calendar</h3><p>A business owner was missing meetings and double-booking appointments due to unmanaged calendar chaos — losing hours weekly.</p><div class="cs-row"><div class="cs-item"><span class="cs-lbl">Solution</span><span class="cs-val">Calendly + Google Calendar integration</span></div><div class="cs-item"><span class="cs-lbl">Tools</span><span class="cs-val">Calendly, Google Calendar, Gmail</span></div><div class="cs-item"><span class="cs-lbl">Result</span><span class="cs-val">Zero missed meetings, 5+ hrs saved weekly</span></div></div></div>
+      <div class="cs-card reveal"><div class="cs-badge">📧 Email</div><h3>Managing Inbox to Improve Response Time</h3><p>An overwhelmed CEO had 1,200+ unread emails with no system, causing delayed responses and missed client opportunities.</p><div class="cs-row"><div class="cs-item"><span class="cs-lbl">Solution</span><span class="cs-val">Labels, folders &amp; response templates</span></div><div class="cs-item"><span class="cs-lbl">Tools</span><span class="cs-val">Gmail, Google Docs</span></div><div class="cs-item"><span class="cs-lbl">Result</span><span class="cs-val">Inbox zero in 3 days, 70% faster replies</span></div></div></div>
+      <div class="cs-card reveal"><div class="cs-badge">🗂️ Files</div><h3>Creating an Organized File Management System</h3><p>A startup had files scattered across drives — team members wasting 30+ minutes daily searching for documents.</p><div class="cs-row"><div class="cs-item"><span class="cs-lbl">Solution</span><span class="cs-val">Google Drive taxonomy + naming conventions</span></div><div class="cs-item"><span class="cs-lbl">Tools</span><span class="cs-val">Google Drive, Google Sheets</span></div><div class="cs-item"><span class="cs-lbl">Result</span><span class="cs-val">Files found in seconds, productivity up 40%</span></div></div></div>
+      <div class="cs-card reveal"><div class="cs-badge">💬 Support</div><h3>Streamlining Customer Communication</h3><p>A service-based business had no consistent follow-up system, leading to missed leads and client confusion about bookings.</p><div class="cs-row"><div class="cs-item"><span class="cs-lbl">Solution</span><span class="cs-val">Follow-up templates + automated reminders</span></div><div class="cs-item"><span class="cs-lbl">Tools</span><span class="cs-val">Calendly, Gmail, Trello</span></div><div class="cs-item"><span class="cs-lbl">Result</span><span class="cs-val">35% fewer no-shows, happier clients</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Sample Projects</h2>
+      <p class="section-sub">A preview of admin systems and workflows I create for clients.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card reveal"><div class="proj-preview">📧</div><div class="proj-body"><h3>Inbox Management System</h3><p>Complete Gmail organization using labels, filters, and response templates to bring an overflowing inbox to zero.</p><div class="proj-tools"><span class="proj-tag">Gmail</span><span class="proj-tag">Google Docs</span><span class="proj-tag">Templates</span></div></div></div>
+      <div class="proj-card reveal"><div class="proj-preview">📆</div><div class="proj-body"><h3>Weekly Content Calendar</h3><p>Structured content calendar in Google Sheets for consistent social media publishing across platforms.</p><div class="proj-tools"><span class="proj-tag">Google Sheets</span><span class="proj-tag">Canva</span><span class="proj-tag">Instagram</span></div></div></div>
+      <div class="proj-card reveal"><div class="proj-preview">✅</div><div class="proj-body"><h3>Task Management Dashboard</h3><p>Trello board with custom workflows, checklists, and due dates to keep projects and teams aligned.</p><div class="proj-tools"><span class="proj-tag">Trello</span><span class="proj-tag">Notion</span><span class="proj-tag">Slack</span></div></div></div>
+      <div class="proj-card reveal"><div class="proj-preview">🗂️</div><div class="proj-body"><h3>Organized File System</h3><p>Restructured Google Drive with clear folder taxonomy, naming conventions, and access permissions.</p><div class="proj-tools"><span class="proj-tag">Google Drive</span><span class="proj-tag">Google Sheets</span></div></div></div>
+      <div class="proj-card reveal"><div class="proj-preview">📅</div><div class="proj-body"><h3>Appointment Scheduling Workflow</h3><p>Seamless booking workflow using Calendly integrated with Google Calendar and automated reminders.</p><div class="proj-tools"><span class="proj-tag">Calendly</span><span class="proj-tag">Google Calendar</span><span class="proj-tag">Gmail</span></div></div></div>
+      <div class="proj-card reveal"><div class="proj-preview">📊</div><div class="proj-body"><h3>Social Media Content Planner</h3><p>30-day content planner with caption templates, hashtag banks, and posting schedules.</p><div class="proj-tools"><span class="proj-tag">Canva</span><span class="proj-tag">Google Sheets</span><span class="proj-tag">Meta</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="section" style="background:linear-gradient(135deg,rgba(216,243,220,.12),#fff)">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title">Certificates &amp; Training</h2>
+      <p class="section-sub">Committed to continuous learning and professional development.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal"><div class="cert-icon">🎓</div><h3>Virtual Assistant Foundations</h3><div class="cert-org">VA Bootcamp Philippines</div><div class="cert-badge">✅ Completed</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📧</div><h3>Email Management Mastery</h3><div class="cert-org">Online Learning Platform</div><div class="cert-badge">✅ Certified</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📅</div><h3>Calendar &amp; Scheduling Pro</h3><div class="cert-org">Google Workspace Training</div><div class="cert-badge">✅ Certified</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📊</div><h3>Data Entry &amp; Spreadsheet Skills</h3><div class="cert-org">Microsoft &amp; Google Training</div><div class="cert-badge">✅ Completed</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🎨</div><h3>Canva Graphic Design</h3><div class="cert-org">Canva Design School</div><div class="cert-badge">✅ Certified</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📱</div><h3>Social Media Management</h3><div class="cert-org">Digital Marketing Academy</div><div class="cert-badge">✅ Completed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Client Feedback</span>
+      <h2 class="section-title">What Clients Say</h2>
+      <p class="section-sub">Reliability and professionalism reflected in every interaction.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-header"><div class="testi-avatar">👩</div><div><div class="testi-name">Sarah M.</div><div class="testi-role">Business Coach, Online Educator</div></div></div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Angie completely transformed how my inbox works. I went from drowning in 800 emails to actually responding on time. Her organization system is incredibly thorough and professional."</p>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-header"><div class="testi-avatar">👨</div><div><div class="testi-name">James R.</div><div class="testi-role">Founder, E-Commerce Brand</div></div></div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"What stood out most was her reliability. She never missed a deadline, always communicated clearly, and kept my schedule perfectly organized. Exactly what a growing business needs."</p>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-header"><div class="testi-avatar">👩</div><div><div class="testi-name">Maria T.</div><div class="testi-role">Real Estate Consultant</div></div></div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Angie set up my Calendly and Google Calendar integration flawlessly. My clients now book effortlessly and I haven't had a double-booking since. Highly recommended!"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Why Choose Angie</span>
+      <h2 class="section-title">The Difference I Bring</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">🎯</div><h3>Reliable &amp; Organized</h3><p>Consistent, structured support every single day</p></div>
+      <div class="why-card reveal"><div class="why-icon">🔍</div><h3>Detail-Oriented</h3><p>Every task handled with precision and care</p></div>
+      <div class="why-card reveal"><div class="why-icon">💬</div><h3>Clear Communication</h3><p>Professional, prompt responses always</p></div>
+      <div class="why-card reveal"><div class="why-icon">⚡</div><h3>Fast Learner</h3><p>Adapts quickly to your tools and workflow</p></div>
+      <div class="why-card reveal"><div class="why-icon">🌱</div><h3>Positive Attitude</h3><p>Enthusiasm and dedication in every task</p></div>
+      <div class="why-card reveal"><div class="why-icon">🔒</div><h3>Trustworthy</h3><p>Your data handled with full confidentiality</p></div>
+      <div class="why-card reveal"><div class="why-icon">⏱️</div><h3>Time-Efficient</h3><p>Maximizes productivity, minimizes wasted time</p></div>
+      <div class="why-card reveal"><div class="why-icon">🤝</div><h3>Team Player</h3><p>Integrates seamlessly into your team structure</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section class="section" style="padding:3rem 2.5rem">
+  <div class="section-inner">
+    <div class="avail-bg reveal">
+      <div class="avail-badge"><div class="dot" style="background:#86efac"></div>Open to Part-Time Opportunities</div>
+      <h2>Let's Simplify Your Daily Operations</h2>
+      <p>Ready to take tasks off your plate so you can focus on growing your business. Available for part-time and project-based administrative support.</p>
+      <div class="avail-features">
+        <div class="avail-feat">✓ Flexible scheduling</div>
+        <div class="avail-feat">✓ Remote work ready</div>
+        <div class="avail-feat">✓ Reliable communication</div>
+        <div class="avail-feat">✓ Productivity-focused</div>
+      </div>
+      <a href="#contact" class="btn-white">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-sub">Ready to get organized? Reach out and let's discuss how I can support your business.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form-card reveal">
+        <h3>Send a Message</h3>
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Service Needed</label>
+          <select>
+            <option>Email Management</option><option>Calendar Management</option>
+            <option>Data Entry</option><option>File Organization</option>
+            <option>Administrative Support</option><option>Social Media Assistance</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your business and what you need help with..."></textarea></div>
+        <button class="btn-primary" onclick="this.textContent='Message Sent! ✓';this.style.background='#22543D'" style="width:100%;justify-content:center">Send Message</button>
+      </div>
+      <div class="reveal">
+        <div class="contact-info-cards">
+          <div class="ci-card"><div class="ci-icon">📞</div><div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val">09684580874</div></div></div>
+          <div class="ci-card"><div class="ci-icon">📧</div><div><div class="ci-label">Email Address</div><div class="ci-val">nantesangela27@gmail.com</div></div></div>
+          <div class="ci-card"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val">Philippines (Remote)</div></div></div>
+          <div class="ci-card"><div class="ci-icon">⏰</div><div><div class="ci-label">Availability</div><div class="ci-val">Open to Part-Time Opportunities</div></div></div>
+        </div>
+        <div class="contact-quote">
+          <p>"Reliable support creates smoother business operations. Let's stay organized, productive, and focused on what matters most."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Angie.</div>
+    <p class="footer-sub">Angela A. Nantes | Admin Virtual Assistant</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#tools">Tools</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 Angela A. Nantes. All rights reserved. Built with ♡ for organized businesses.</div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <button class="float-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📅 Book a Call</button>
+  <button class="ai-toggle" onclick="toggleChat()" title="Ask Angie's AI Assistant">🤖</button>
+</div>
+
+<!-- AI CHAT WIDGET -->
+<div class="ai-chat" id="aiChat">
+  <div class="ai-chat-head">
+    <div class="ai-head-info">
+      <div class="ai-avatar-wrap">🤖</div>
+      <div><h4>Angie's AI Assistant</h4><span>Powered by Claude · Ask anything</span></div>
+    </div>
+    <button class="ai-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="msg bot">Hi! 👋 I'm Angie's virtual assistant. Ask me about her services, tools, or availability — I'm happy to help!</div>
+  </div>
+  <div class="ai-suggs">
+    <button class="ai-sug" onclick="askSug('What services does Angie offer?')">Services</button>
+    <button class="ai-sug" onclick="askSug('Is Angie available for part-time work?')">Availability</button>
+    <button class="ai-sug" onclick="askSug('What tools does Angie use?')">Tools</button>
+    <button class="ai-sug" onclick="askSug('How can Angie help my business?')">How she helps</button>
+  </div>
+  <div class="ai-input-row">
+    <input class="ai-input" id="aiInput" placeholder="Ask about Angie's services…" onkeydown="if(event.key==='Enter')sendAI()">
+    <button class="ai-send" onclick="sendAI()">➤</button>
+  </div>
+</div>
+
+<script>
+// ── Embed headshot as base64 (works offline, no external host needed) ──
+const PHOTO_SRC = "data:image/jpeg;base64,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";
+document.getElementById('angiePhoto').src = PHOTO_SRC;
+document.getElementById('angiePhotoAbout').src = PHOTO_SRC;
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 55);
+      revObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => revObs.observe(el));
+
+// ── Skill bar animation ──
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      skillObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+skillFills.forEach(el => skillObs.observe(el));
+
+// ── AI Chat ──
+function toggleChat() {
+  document.getElementById('aiChat').classList.toggle('open');
+}
+
+function askSug(q) {
+  document.getElementById('aiInput').value = q;
+  sendAI();
+}
+
+let chatHistory = [];
+
+async function sendAI() {
+  const input = document.getElementById('aiInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  const msgs = document.getElementById('aiMessages');
+
+  const userEl = document.createElement('div');
+  userEl.className = 'msg user';
+  userEl.textContent = msg;
+  msgs.appendChild(userEl);
+
+  const typingEl = document.createElement('div');
+  typingEl.className = 'msg bot';
+  typingEl.textContent = 'Typing…';
+  msgs.appendChild(typingEl);
+  msgs.scrollTop = msgs.scrollHeight;
+
+  chatHistory.push({ role: 'user', content: msg });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: ,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "For more details, please reach out to Angie at nantesangela27@gmail.com!";
+    chatHistory.push({ role: 'assistant', content: reply });
+    typingEl.textContent = reply;
+    msgs.scrollTop = msgs.scrollHeight;
+  } catch (e) {
+    typingEl.textContent = "Sorry, I'm having trouble right now. Please email nantesangela27@gmail.com directly!";
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+}
+</script>
+</body>
+</html>
